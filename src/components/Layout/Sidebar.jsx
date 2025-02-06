@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaBook, FaUsers, FaWallet, FaRegCalendarAlt, FaExchangeAlt, FaCogs, FaBolt } from "react-icons/fa";
 import { HiRocketLaunch } from "react-icons/hi2";
 

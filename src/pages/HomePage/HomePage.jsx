@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Layout/Sidebar";
 import { IoLocationOutline } from "react-icons/io5";
@@ -9,8 +9,11 @@ import { RiBuilding2Fill } from "react-icons/ri";
 import { FaFileAlt } from "react-icons/fa";
 import { MdOutlineLaptopWindows } from "react-icons/md";
 import DashboardCards from "../../components/graphs/DashboardCards";
-
+import BookMeetingModal from "../../components/Modal/BookMeetingModal";
+import { useNavigate } from "react-router-dom";
 const HomePage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+const navigate = useNavigate();
   return (
     <div>
       <Navbar />
@@ -28,7 +31,7 @@ const HomePage = () => {
                       Connect with the right people at qualified companies with
                       new contact data
                     </p>
-                    <button className="py-2 px-5 bg-[#4675ff] rounded-md text-sm font-Inter">
+                    <button className="py-2 px-5 bg-[#4675ff] rounded-md text-sm font-Inter" onClick={() => navigate("/wallet")}>
                       Add Funds
                     </button>
                   </div>
@@ -82,7 +85,7 @@ const HomePage = () => {
                       </div>
                     </div>
                     <div className="w-full flex justify-end">
-                      <button className="bg-[#4675ff] font-Inter text-sm py-2 px-10 mt-5 rounded-lg">
+                      <button className="bg-[#4675ff] font-Inter text-sm py-2 px-10 mt-5 rounded-lg" onClick={() => navigate("/invester-details")}>
                         Create
                       </button>
                     </div>
@@ -121,7 +124,10 @@ const HomePage = () => {
                   </div>
                 </div>
 
-                <div className="bg-[#0a0a0a] rounded-lg h-1/5 flex flex-row items-center justify-center gap-4 cursor-pointer hover:bg-[#303030] ease-in-out transition duration-300F">
+                <div
+                  className="bg-[#0a0a0a] rounded-lg h-1/5 flex flex-row items-center justify-center gap-4 cursor-pointer hover:bg-[#303030] ease-in-out transition duration-300"
+                  onClick={() => setIsModalOpen(true)}
+                >
                   <MdOutlineLaptopWindows size={40} />
                   <h1 className="font-impact text-3xl">
                     Book Meeting with Stakeholder
@@ -137,6 +143,8 @@ const HomePage = () => {
           </div>
         </Sidebar>
       </div>
+      <BookMeetingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
     </div>
   );
 };

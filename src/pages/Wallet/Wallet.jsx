@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../../components/Layout/Sidebar";
 import Navbar from "../../components/Navbar";
 import { AiOutlineDollarCircle } from "react-icons/ai";
@@ -6,9 +6,11 @@ import { GiPiggyBank } from "react-icons/gi";
 import PerformanceGraphs from "../../components/graphs/PerformanceGraphs";
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import AddFundsModal from "../../components/Modal/AddFundsModal";
 
 const Wallet = () => {
   const navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div>
@@ -24,7 +26,10 @@ const Wallet = () => {
                 <FaArrowLeft />
                 My Wallet
               </button>
-              <button className="bg-[#4675ff] px-7 py-2 rounded-md hover:bg-[#385dcc] ease-in-out transition duration-300 font-inter font-semibold">
+              <button
+                className="bg-[#4675ff] px-7 py-2 rounded-md hover:bg-[#385dcc] ease-in-out transition duration-300 font-inter font-semibold"
+                onClick={() => setModalOpen(true)}
+              >
                 Add Funds
               </button>
             </div>
@@ -57,14 +62,15 @@ const Wallet = () => {
             </div>
 
             <div>
-                <h1 className="font-impact text-2xl py-7">Recent Transaction</h1>
-                <div className="bg-[#0d0d0d] rounded-lg text-[#b3b3b3] w-full h-48 flex items-center justify-center font-poppins font-semibold"> 
-                    No transactions yet
-                </div>
+              <h1 className="font-impact text-2xl py-7">Recent Transaction</h1>
+              <div className="bg-[#0d0d0d] rounded-lg text-[#b3b3b3] w-full h-48 flex items-center justify-center font-poppins font-semibold">
+                No transactions yet
+              </div>
             </div>
           </div>
         </Sidebar>
       </div>
+      <AddFundsModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 };

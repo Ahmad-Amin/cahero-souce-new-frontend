@@ -10,8 +10,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage/>} />
           <Route path="/wallet" element={<Wallet/>} />
-          <Route path="/invester-details" element={<TabbedPage/>} />
-          <Route path="/invester-details/add-company" element={<AddCompany/>} />
+          <Route path="/investor-details" element={<TabbedPage/>} />
+          <Route path="/investor-details/add-company" element={<AddCompany/>} />
           <Route path="*" element={<h1 className="text-center text-4xl font-impact">404 - Page Not Found</h1>} />
         </Routes>
     </Router>

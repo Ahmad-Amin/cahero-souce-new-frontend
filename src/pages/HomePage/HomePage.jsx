@@ -85,7 +85,7 @@ const navigate = useNavigate();
                       </div>
                     </div>
                     <div className="w-full flex justify-end">
-                      <button className="bg-[#4675ff] font-Inter text-sm py-2 px-10 mt-5 rounded-lg" onClick={() => navigate("/invester-details")}>
+                      <button className="bg-[#4675ff] font-Inter text-sm py-2 px-10 mt-5 rounded-lg" onClick={() => navigate("/investor-details")}>
                         Create
                       </button>
                     </div>

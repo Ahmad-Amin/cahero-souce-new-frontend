@@ -10,7 +10,7 @@ const CompaniesPage = () => {
   return (
     <div className="w-full">
       <div className="w-full flex justify-end">
-        <button className="font-Inter bg-[#4675ff] text-white py-2 px-8 rounded-lg" onClick={() => navigate("/invester-details/add-company")}>
+        <button className="font-Inter bg-[#4675ff] text-white py-2 px-8 rounded-lg" onClick={() => navigate("/investor-details/add-company")}>
           Add Company
         </button>
       </div>
